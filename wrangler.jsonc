@@ -1,0 +1,32 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "spws-project4",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-20",
+  "containers": [
+    {
+      "class_name": "SPWSContainer",
+      "image": "./Dockerfile",
+      "max_instances": 1
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "class_name": "SPWSContainer",
+        "name": "SPWS_APP"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "SPWSContainer"
+      ]
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

@@ -1,0 +1,11 @@
+SPWS on Cloudflare Containers
+
+IMPORTANT:
+- This project is a FastAPI + pandas + NumPy application, not Streamlit.
+- It is configured for Cloudflare Containers (Workers Paid plan required).
+- In Cloudflare Workers Builds, set Root directory to "." if this folder's contents are the repository root.
+- Set Build command to: npm install
+- Set Deploy command to: npx wrangler deploy
+- Keep Dockerfile, wrangler.jsonc, package.json and src/ at the same root.
+- Configure ADMIN_PASSWORD and SECRET_KEY as Worker/container secrets or environment variables before exposing the app.
+- The current app writes store.json/auth.json to DATA_DIR. Container-local disk is not durable across replacement; configure durable storage before relying on user-added data/password changes.
